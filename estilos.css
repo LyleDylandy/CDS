@@ -302,7 +302,27 @@ form{
   font-weight: 900;
 }
 
-Footer{
+.footer{
   background-color: #B83838;
-  height: 206px;
+  height: 195px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: #FFFFFF;
+  font-size: 14px;
+}
+
+.media{
+  display: flex;
+  align-items: center;
+}
+
+.media img{
+  height: 80px;
+  width: 80px;
+  padding: 10px;
+}
+
+.history{
+  width: 500px;
 }
