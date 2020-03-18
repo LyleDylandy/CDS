@@ -255,9 +255,9 @@ canvas{
 
 .contacts{
   display: grid;
-  grid-template-columns: 20% 1fr 1fr 20%;
-  grid-template-rows: 1fr 60px;
-  grid-template-areas: '. contact form .';
+  grid-template-rows: 1fr 1fr 25px;
+  grid-template-areas: 'contact'
+                       'media';
 }
 
 .contact{
@@ -272,42 +272,8 @@ canvas{
   font-size: 21px;
 }
 
-.contact_form{
-  grid-area: form;
-}
-
-form{
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-end;
-}
-
-.info{
-  width: 302px;
-  padding: 8px;
-  box-sizing: border-box;
-  height: 24px;
-  margin: 8px 0;
-  border: 0;
-  border-radius: 2px;
-  background-color: #D4CDCD;
-}
-
-.comm{
-  height: 68px;
-}
-
-.btn{
-  width: 113px;
-  height: 28px;
-  border: 0;
-  margin-top: 7px;
-  background-color: #B83838;
-  border-radius: 4px;
-  color: #FFFFFF;
-  font-size: 14PX;
-  font-weight: 900;
+.media{
+  grid-area: media;
 }
 
 .footer{
@@ -330,8 +296,8 @@ form{
 }
 
 .media img{
-  height: 80px;
-  width: 80px;
+  height: 50px;
+  width: 50px;
   padding: 10px;
 }
 
@@ -392,18 +358,6 @@ form{
     width: 75%;
     justify-self: center;
     align-self: center;
-  }
-
-  .contacts{
-    grid-template-rows: 1fr 2fr 25px;
-    grid-template-columns: 1fr;
-    grid-template-areas: 'contact'
-                         'form'
-                         '.';
-  }
-
-  form{
-    align-items: center;
   }
 
   .footer{
