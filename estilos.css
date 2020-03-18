@@ -39,13 +39,14 @@ header{
 
 .border{
   height: 105px;
-  display: flex;
-  justify-content: flex-end;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  grid-template-areas: '. right';
   margin-top: -58px;
 }
 
 .corner{
-  width: 475px;
+  grid-area: right;
   background-color: #B83838;
   border-radius: 119px 0 0 119px;
   display: flex;
@@ -66,13 +67,15 @@ header{
 }
 
 .border2{
-  height: 70px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  grid-template-rows: 10px 50px;
+  grid-template-areas: '. .'
+                       'left .';
 }
 
 .corner2{
+  grid-area: left;
   width: 280px;
   background-color: #B83838;
   border-radius: 0 119px 119px 0;
@@ -231,41 +234,46 @@ canvas{
 }
 
 .aboutus{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.container{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 80%;
-}
-
-.aboutus img{
-  height: 200px;
-  width: 200px;
+  display: grid;
+  grid-template-columns: 1fr 250px 0.5fr 600px 1fr;
+  grid-template-areas: '. logo . desc .';
 }
 
 .description{
-  width: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  grid-area: desc;
+}
+
+.aboutus img{
+  grid-area: logo;
+  height: 100%;
+  width: 100%;
 }
 
 .contacts{
-  margin-bottom: 60px;
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 20% 1fr 1fr 20%;
+  grid-template-rows: 1fr 60px;
+  grid-template-areas: '. contact form .';
 }
 
-.contacts .container{
-  width: 70%;
-  justify-content: space-around;
+.contact{
+  grid-area: contact;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .contact span{
   color: #676161;
   font-size: 21px;
+}
+
+.contact_form{
+  grid-area: form;
 }
 
 form{
@@ -302,20 +310,11 @@ form{
   font-weight: 900;
 }
 
-/* .footer{
-  background-color: #B83838;
-  height: 195px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  color: #FFFFFF;
-  font-size: 14px;
-} */
-
 .footer{
   background-color: #B83838;
   height: 195px;
   display: grid;
+  grid-template-columns: 1fr 1.5fr;
   grid-template-areas: 'media history'
                         '. special';
   align-items: center;
@@ -341,35 +340,84 @@ form{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 500px;
+  padding: 10px;
 }
 
 .special{
   grid-area: special;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
 }
 
 .special a{
-  padding: 0 5px;
+  padding-right: 5px;
   text-decoration: none;
   color: #FFFFFF;
 }
 
 @media screen and (max-width: 768px){
+
   .border{
-    height: 75px;
+    grid-template-columns: 1fr;
+    grid-template-areas: 'right';
   }
 
   .corner{
-    border-radius: 0;
+    border-radius: 119px;
+  }
+
+  .border2{
+    grid-template-rows: 25px 50px;
   }
 
   .right{
     display: none;
   }
 
-  .products{
-    width: 135px;
+  .product{
+    width: 145px;
+    margin: 25px 8px;
   }
+
+  .aboutus{
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 'logo'
+                         'desc';
+  }
+
+  .aboutus img{
+    height: 75%;
+    width: 75%;
+    justify-self: center;
+    align-self: center;
+  }
+
+  .contacts{
+    grid-template-rows: 1fr 2fr 25px;
+    grid-template-columns: 1fr;
+    grid-template-areas: 'contact'
+                         'form'
+                         '.';
+  }
+
+  form{
+    align-items: center;
+  }
+
+  .footer{
+    height: auto;
+    grid-template-rows: 50px 1fr 25px;
+    grid-template-columns: 1fr;
+    grid-template-areas: 'media'
+                         'history'
+                         'special';
+  }
+
+  .media img{
+    height: 25px;
+    width: 25px;
+  }
+
 }
