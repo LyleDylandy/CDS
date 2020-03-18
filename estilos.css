@@ -408,7 +408,7 @@ form{
 
   .footer{
     height: auto;
-    grid-template-rows: 50px 1fr 25px;
+    grid-template-rows: 50px 1fr 0.2fr;
     grid-template-columns: 1fr;
     grid-template-areas: 'media'
                          'history'
