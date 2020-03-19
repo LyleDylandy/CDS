@@ -3,6 +3,10 @@ body{
   font-family: 'Roboto', sans-serif;
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
 header{
   background-color: #B83838;
   display: flex;
@@ -90,14 +94,25 @@ header{
   color: #FFFFFF;
 }
 
-.right{
+.right, .left{
   display: flex;
   justify-content: center;
   align-items: center;
   width: 80px;
 }
 
+.left{
+  grid-area: left;
+}
+
+.right{
+  grid-area: right;
+}
+
 .arrow{
+  border: 0;
+  cursor: pointer;
+  outline: none;
   background-color: #B83838;
   border-radius: 50%;
   width: 35px;
@@ -139,14 +154,24 @@ header{
 }
 
 .products{
+  display: grid;
+  grid-template-columns: 80px 1fr 80px;
+  grid-template-rows: 10px 1fr 20px;
+  grid-template-areas: '. . .'
+                       'left product right'
+                       '. . .';
+}
+
+.product_details{
+  grid-area: product;
   display: flex;
   justify-content: center;
-  margin: 0 auto;
-  text-align: center;
   flex-wrap: wrap;
+  text-align: center;
 }
 
 .product{
+  grid-area: product;
   color: #FFFFFF;
   padding: 20px;
   width: 200px;
@@ -281,7 +306,7 @@ canvas{
   height: 195px;
   display: grid;
   grid-template-columns: 1fr 1.5fr;
-  grid-template-areas: 'media history'
+  grid-template-areas: ' history history'
                         '. special';
   align-items: center;
   color: #FFFFFF;
@@ -337,8 +362,13 @@ canvas{
     grid-template-rows: 25px 50px;
   }
 
-  .right{
+  .right, .left{
     display: none;
+  }
+
+  .products{
+    grid-template-columns: none;
+    grid-template-rows: none;
   }
 
   .product{
